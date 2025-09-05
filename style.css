@@ -1,0 +1,365 @@
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e6f8ef;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+section {
+  padding: 60px 15px;
+}
+
+/* Navbar - Glassmorphism */
+.navbar {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 12px;
+  transition: background 0.3s ease;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
+}
+.navbar .nav-link {
+  position: relative;
+  color: rgb(0, 0, 0) !important;
+  margin-left: 15px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e354c6, #a6e357);
+  transition: width 0.3s;
+  border-radius: 5px;
+}
+.navbar .nav-link:hover {
+  color: #030303 !important;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+.navbar-brand {
+  color: #000000 !important;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #d1edad, #40bc74, #020a54);
+  color: white;
+  text-align: center;
+  padding: 140px 20px 110px;
+  margin-top: 56px; /* for navbar offset */
+  position: relative;
+  overflow: hidden;
+}
+/* Animated Gradient Text for Header Name */
+.header h1 {
+  font-size: 4rem;
+  background: linear-gradient(270deg, #40bc74, #d1edad, #020a54, #40bc74);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  margin-bottom: 10px;
+}
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+.header h3 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* Floating geometric shapes in background */
+.header::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  top: 20%;
+  left: 15%;
+  filter: blur(60px);
+  animation: floatUpDown 6s ease-in-out infinite alternate;
+  z-index: 1;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(182, 255, 198, 0.2);
+  border-radius: 35% 65% 55% 45% / 60% 30% 70% 40%;
+  top: 50%;
+  right: 20%;
+  filter: blur(50px);
+  animation: floatUpDown 8s ease-in-out infinite alternate-reverse;
+  z-index: 1;
+}
+@keyframes floatUpDown {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-30px);}
+}
+
+/* Skills Section */
+#skills h5 {
+  color: #4e54c8;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+#skills p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+/* Contact Section */
+.contact {
+  background-color: #222;
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  z-index: 10;
+  position: relative;
+}
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #4e54c8;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.contact a:hover {
+  background: #a6e357;
+  color: #020a54;
+}
+
+/* Contact icons */
+.contact a i {
+  font-size: 18px;
+}
+
+/* Section Titles */
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #4e54c8;
+  font-weight: 800;
+  font-size: 2.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Cards with 3D Tilt on hover */
+.custom-card {
+  background: white;
+  border-radius: 15px 40px 15px 40px;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.custom-card:hover {
+  transform: rotateY(8deg) rotateX(4deg) translateY(-12px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+}
+.custom-card a {
+  color: #4e54c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+.custom-card a:hover {
+  text-decoration: underline;
+}
+
+/* Education list style */
+#education ul {
+  list-style: none;
+  padding-left: 0;
+}
+#education ul li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #222;
+}
+#education ul li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #40bc74;
+  font-size: 20px;
+}
+
+/* Projects details style */
+#projects .custom-card b {
+  font-size: 1.2rem;
+  color: #252525;
+  display: block;
+  margin-bottom: 10px;
+}
+#projects .custom-card p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* Internship list */
+#internship ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  font-weight: 600;
+}
+
+/* Certificates list */
+#certificates ul {
+  list-style: circle inside;
+  padding-left: 1rem;
+  font-weight: 600;
+}
+#certificates ul li a {
+  color: #4e54c8;
+  font-weight: 600;
+  text-decoration: none;
+}
+#certificates ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Fixes for smaller devices */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 3rem;
+  }
+  .header h3 {
+    font-size: 1.1rem;
+  }
+  .custom-card {
+    padding: 20px 15px;
+  }
+  .contact a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .navbar .nav-link {
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Scrollbar smooth for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Animation */
+section, .contact {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+section.visible, .contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4e54c8;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+.back-to-top:hover {
+  background: #333;
+}
+
+/* Responsive Design */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  .header h3 {
+    font-size: 1.2rem;
+  }
+  section {
+    padding: 40px 10px;
+  }
+  .custom-card {
+    padding: 20px;
+  }
+}
+
+/* For small mobile screens (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    padding: 80px 15px;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+  .header h3 {
+    font-size: 1rem;
+  }
+  .contact {
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+  .custom-card {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  nav .navbar-brand {
+    font-size: 1rem;
+  }
+}
